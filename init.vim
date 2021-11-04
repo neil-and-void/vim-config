@@ -24,11 +24,16 @@ call plug#begin()
   Plug 'alvan/vim-closetag'
 
   " React snippets
-  " Plug 'SirVer/ultisnips'
   Plug 'mlaursen/vim-react-snippets'
 
   " Tailwind snippets
   Plug 'iamcco/coc-tailwindcss'
+  
+  " lightline
+  Plug 'itchyny/lightline.vim'
+
+  " vim git
+  Plug 'itchyny/vim-gitbranch'
 
 call plug#end()
 
@@ -44,6 +49,17 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-css',
   \ ]
+
+" lightline config
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
