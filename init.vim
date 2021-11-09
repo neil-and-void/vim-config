@@ -1,6 +1,6 @@
 set number
 set nocompatible
-set foldmethod=syntax
+set foldmethod=manual
 let mapleader = " "
 set updatetime=300
 
@@ -25,16 +25,19 @@ call plug#begin()
 
   " React snippets
   Plug 'mlaursen/vim-react-snippets'
-
-  " Tailwind snippets
-  Plug 'iamcco/coc-tailwindcss'
-  
+ 
   " lightline
   Plug 'itchyny/lightline.vim'
 
   " vim git
   Plug 'itchyny/vim-gitbranch'
 
+  " github dark
+  Plug 'projekt0n/github-nvim-theme'
+
+  " file highlighting nerdtree
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+ 
 call plug#end()
 
 " coc config
@@ -48,7 +51,11 @@ let g:coc_global_extensions = [
   \ 'coc-pyright',
   \ 'coc-html',
   \ 'coc-css',
+  \ 'coc-tailwindcss'
   \ ]
+
+" github theme
+colorscheme github_dark_default
 
 " lightline config
 let g:lightline = {
@@ -94,6 +101,8 @@ nnoremap <C-l> <C-W>l
 nnoremap <C-h> <C-W>h
 nnoremap <Leader>. <Esc>:tabn<CR>
 nnoremap <Leader>, <Esc>:tabp<CR>
+nnoremap <silent> <Leader>= :vertical resize +3<CR>
+nnoremap <silent> <Leader>- :vertical resize -3<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
